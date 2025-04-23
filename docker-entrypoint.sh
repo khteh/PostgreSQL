@@ -242,6 +242,7 @@ docker_setup_db() {
 		POSTGRES_DB_1= docker_process_sql --dbname postgres --set db="$POSTGRES_DB_1" --set user="$POSTGRESQL_USER" --set password="$POSTGRES_PASSWORD" <<-'EOSQL'
 			CREATE USER :"user" WITH PASSWORD :'password' ;
 			CREATE DATABASE :"db" WITH OWNER = :"user" ;
+			ALTER USER :"user" WITH SUPERUSER ;
 		EOSQL
 		echo
 	fi
