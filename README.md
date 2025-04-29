@@ -1,6 +1,7 @@
 # postgresql
 
 - Overwrite docker-entrypoint.sh in https://github.com/docker-library/postgres/blob/master/docker-entrypoint.sh to enable multiple databases
+- Add `pgvector` extension
 
 ## Customization Details:
 
@@ -68,3 +69,15 @@ $ pg_dump -U guest -h <svc-postgresql-nodeport> -d <database> -f <database>.sql
             - name: POSTGRES_DB_4
               value: LangchainCheckpoint
 ```
+
+## PostGIS
+
+- Use https://hub.docker.com/r/postgis/postgis as base image
+
+## PostgreSQL HA cluster
+
+- https://github.com/bitnami/charts/tree/main/bitnami/postgresql-ha
+
+### Readings
+
+- https://www.cncf.io/blog/2023/09/29/recommended-architectures-for-postgresql-in-kubernetes/
