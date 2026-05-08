@@ -1,8 +1,6 @@
 FROM pgvector/pgvector:pg18-trixie AS vector
 FROM postgres:latest
 LABEL org.opencontainers.image.authors="Kok How, Teh <funcoolgeeek@gmail.com>"
-RUN apt update -y
-RUN apt install -y barman barman-cli barman-cli-cloud
 COPY --from=vector /usr/lib/postgresql/18/lib/vector.so /usr/lib/postgresql/18/lib/
 COPY --from=vector /usr/share/postgresql/18/extension/vector* /usr/share/postgresql/18/extension/
 ADD docker-entrypoint.sh /usr/local/bin/custom-docker-entrypoint.sh

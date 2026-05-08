@@ -1,3 +1,3 @@
 #!/bin/bash
-docker build -t khteh/postgresql .
+docker build --no-cache --pull -t khteh/postgresql .
 docker push khteh/postgresql:latest
