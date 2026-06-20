@@ -221,7 +221,7 @@ docker_process_postgis() {
 
 	# Load PostGIS into both template_database and $POSTGRES_DB
 	for DB in template_postgis "$POSTGRES_DB"; do
-		echo "Loading PostGIS extensions into $DB"
+		printf "Loading PostGIS extensions into %s\n" "$DB"
 		"${psql[@]}" --dbname="$DB" <<-'EOSQL'
 			CREATE EXTENSION IF NOT EXISTS postgis;
 			CREATE EXTENSION IF NOT EXISTS postgis_topology;
