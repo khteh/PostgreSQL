@@ -23,10 +23,13 @@
 - `docker_setup_db`:
   - Check and setup all the `POSTGRES_DB_<foo>`
   - Set the stage in first `POSTGRES_DB_1` for the custom user required by all the subsequent DBs:
+
   ```
   CREATE USER :"user" WITH PASSWORD :'password' ;
   ```
+
   - In case a privilege escalation is needed,`CREATE EXTENSION <foo>`, for instance,
+
   ```
   ALTER USER :"user" WITH SUPERUSER ;
   ```
@@ -72,7 +75,12 @@ $ pg_dump -U guest -h <svc-postgresql-nodeport> -d <database> -f <database>.sql
 
 ## PostGIS
 
-- Use https://hub.docker.com/r/postgis/postgis as base image
+```
+postgres=# SELECT * FROM pg_available_extensions WHERE name = 'postgis';
+  name   | default_version | installed_version |                          comment
+---------+-----------------+-------------------+------------------------------------------------------------
+ postgis | 3.6.4           |                   | PostGIS geometry and geography spatial types and functions
+```
 
 ## PostgreSQL HA cluster
 
