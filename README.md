@@ -34,6 +34,9 @@
   ALTER USER :"user" WITH SUPERUSER ;
   ```
 
+- `docker_process_postgis`:
+  - Add PostGIS initialization script which would otherwise be overwritten by postgresql-initdb mounted volume.
+
 ## Check Existing Databases
 
 ```
