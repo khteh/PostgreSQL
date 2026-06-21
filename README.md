@@ -18,6 +18,7 @@
   ```
 - `postgis`:
   ```
+  postgres=# \c postgres
   postgres=# \dx
                                                   List of installed extensions
             Name          | Version | Default version |   Schema   |                        Description
